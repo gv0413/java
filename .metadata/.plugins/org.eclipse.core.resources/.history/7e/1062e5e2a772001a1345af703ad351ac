@@ -1,0 +1,10 @@
+package song;
+
+public class Song {
+	public double getPrice() {
+		return 10.0;
+	}
+	public double calPrice(){
+		return this.getPrice();
+	}
+}

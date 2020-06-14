@@ -1,0 +1,6 @@
+package song;
+
+public class TodayEvent extends Song {
+	public double calPrice(){
+		return this.getPrice()-0.1*this.getPrice();
+	}

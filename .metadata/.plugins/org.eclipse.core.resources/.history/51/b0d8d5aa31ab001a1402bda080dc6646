@@ -1,0 +1,62 @@
+import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+
+import javax.swing.JButton;
+
+public class Client {
+	public static void main(String[] args) {
+		new ItemEx();
+	}
+}
+
+class ImageService {
+	public static final String[] itemImageName = {"rb.png", "success.png", "fail.png"};
+}
+
+class ItemEx extends JFrame {
+	private static final long serialVersionUID = 1L;
+	private Controller controller;
+	
+	ItemEx ie;
+	
+	public ItemEx() {
+		super("ItemEx");
+		this.ie =this;
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setLayout(new BorderLayout());
+		setContentPane(new DrawItem());
+		
+		controller = new Controller();
+		add(controller, BorderLayout.NORTH);
+		
+		setSize(400, 400);
+		setVisible(true);
+	}
+}
+
+class DrawItem extends JPanel {
+	private static final long serialVersionUID= 1L;
+	protected void paintComponent(Graphics g) {
+		super.paintComponent(g);
+	}
+}
+
+private class Controller extends JPanel implements ActionListener {
+	private static final long serialVersionUID = 1L;
+	private JButton btnRnd;
+	
+	public Controller() {
+		setLayout(new FlowLayout());
+		
+		btnRnd = new JButton("æ∆¿Ã≈€ ªÃ±‚");
+		btnRnd.addActionListener(this);
+		add(btnRnd);
+	}
+	
+	public void actionPerformed(ActionEvent e) {
+		JButton btn = (JButton) e.getSource();
+		if(btn == btnRnd) {
+			
+		}
+	}
+}

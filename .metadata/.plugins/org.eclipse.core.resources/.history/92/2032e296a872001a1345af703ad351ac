@@ -1,0 +1,10 @@
+package song;
+
+public class OnSale extends Song {
+	public OnSale() {
+		this.discountPercentage =0.3;
+	}
+//	public double calPrice(){
+//		return this.getPrice()-0.1*this.getPrice();
+//	}
+}

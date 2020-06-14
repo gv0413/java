@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy package &apos;img&apos; to &apos;zelda-state/src&apos;&#x0D;&#x0A;- Original project: &apos;Client3.java&apos;&#x0D;&#x0A;- Destination element: &apos;zelda-state/src&apos;&#x0D;&#x0A;- Original element: &apos;Client3.java/src/img&apos;" description="Copy package" destination="=zelda-state/src" element1="/src&lt;img" flags="589830" fragments="1" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyPackages" stamp="1589382604434" version="1.0"/>
+</session>
