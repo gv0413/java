@@ -35,7 +35,7 @@ class ItemEx extends JFrame {
 		setLayout(new BorderLayout());
 		setContentPane(new DrawItem());
 		
-		controller = new Controller(); //Å¬¸¯ÇßÀ» ¶§ ´çÃ·°ú ²ÎÀ» ¼±ÅÃÇØÁÖ´Â°Å 
+		controller = new Controller(); //í´ë¦­í–ˆì„ ë•Œ ë‹¹ì²¨ê³¼ ê½ì„ ì„ íƒí•´ì£¼ëŠ”ê±° 
 		add(controller, BorderLayout.NORTH);
 		
 		setSize(400, 400);
@@ -59,7 +59,7 @@ class ItemEx extends JFrame {
 		public Controller() {
 			setLayout(new FlowLayout());
 			
-			btnRnd = new JButton("¾ÆÀÌÅÛ »Ì±â");
+			btnRnd = new JButton("ì•„ì´í…œ ë½‘ê¸°");
 			btnRnd.addActionListener(this);
 			add(btnRnd);
 		}
@@ -76,7 +76,7 @@ class ItemEx extends JFrame {
 }
 
 
-//È®·ü¿¡ µû¶ó ¾ÆÀÌÅÛ ¼±ÅÃ. ¼º°øÈ®·ü°ú ½ÇÆĞÈ®·ü µû·Î
+//í™•ë¥ ì— ë”°ë¼ ì•„ì´í…œ ì„ íƒ. ì„±ê³µí™•ë¥ ê³¼ ì‹¤íŒ¨í™•ë¥  ë”°ë¡œ
 enum ProbabilityType{P10, P50, P90}
 class ItemFactory {
 	public static Item getItem(ProbabilityType type) {
@@ -85,7 +85,7 @@ class ItemFactory {
 		Random rd = new Random();
 		switch(type) {
 		case P10:
-			if(rd.nextInt(10) <= 0) { //0~9±îÁö 10°³Áß ·£´ıÀÓ
+			if(rd.nextInt(10) <= 0) { //0~9ê¹Œì§€ 10ê°œì¤‘ ëœë¤ì„
 				item = new SuccessItem();
 			}else {
 				item = new FailItem();
@@ -113,7 +113,7 @@ class ItemFactory {
 	}
 }
 
-//±×·ÁÁö°ÔÇÏ±â À§ÇÑ ¸Å´ÏÀú Å¬·¡½º
+//ê·¸ë ¤ì§€ê²Œí•˜ê¸° ìœ„í•œ ë§¤ë‹ˆì € í´ë˜ìŠ¤
 class ItemManager {
 	private Item item;
 	public ItemManager(Item item) {
@@ -123,7 +123,7 @@ class ItemManager {
 		g.drawImage(this.item.getItemImage(), 0, 0, 400, 400, ie);
 	}
 }
-//Item ¸¸µé±â
+//Item ë§Œë“¤ê¸°
 interface Item {
 	public Image getItemImage();
 }
@@ -133,7 +133,7 @@ class MainItem implements Item {
 	@Override
 	public Image getItemImage() {
 		ImageIcon image = new ImageIcon("./src/img/" + ImageService.itemImageName[0]); 
-		//main Ã³À½ ÀÌ¹ÌÁö
+		//main ì²˜ìŒ ì´ë¯¸ì§€
 		Image img = image.getImage();
 		return img;
 	}
@@ -163,16 +163,3 @@ class FailItem implements Item {
 	}
 	
 }
-
-
-
-
-
-
-
-
-
-
-
-
-

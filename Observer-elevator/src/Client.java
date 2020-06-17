@@ -1,5 +1,5 @@
 /*
- ÇöÀç Ãş¿¡ ´ëÇÑ ³»¿ëÀÌ ¿©·¯°÷¿¡¼­ Ãâ·ÂµÊ(±â´Ù¸®´Â °÷, ¿¤·¹º£ÀÌÅÍ ³»ºÎ, ÅëÁ¦½Ç µîµî)
+ í˜„ì¬ ì¸µì— ëŒ€í•œ ë‚´ìš©ì´ ì—¬ëŸ¬ê³³ì—ì„œ ì¶œë ¥ë¨(ê¸°ë‹¤ë¦¬ëŠ” ê³³, ì—˜ë ˆë² ì´í„° ë‚´ë¶€, í†µì œì‹¤ ë“±ë“±)
 */
 import java.util.List;
 import java.util.ArrayList;
@@ -28,18 +28,18 @@ abstract class Subject {
   }
 
   public void notifyObservers() {
-    for( Observer o : observers) { //observers¸®½ºÆ®¿¡¼­ Observer typeÀÇ o¸¦ µ¹¸é¼­
-      o.update(); //¿ÉÀú¹ö°¡ °¡Áö°íÀÖ´Â ¾÷µ¥ÀÌÆ®ÇÔ¼ö¸¦ µ¹¸é¼­ ¾÷µ¥ÀÌÆ® ÇÒ ¼ö ÀÖµµ·Ï
+    for( Observer o : observers) { //observersë¦¬ìŠ¤íŠ¸ì—ì„œ Observer typeì˜ oë¥¼ ëŒë©´ì„œ
+      o.update(); //ì˜µì €ë²„ê°€ ê°€ì§€ê³ ìˆëŠ” ì—…ë°ì´íŠ¸í•¨ìˆ˜ë¥¼ ëŒë©´ì„œ ì—…ë°ì´íŠ¸ í•  ìˆ˜ ìˆë„ë¡
     }
  }
 }
 
-class ElevatorController extends Subject { //Ãş¿¡ ´ëÇÑ Á¤º¸¸¦ ¾Ë°íÀÖ¾î¾ß ÇÔ
+class ElevatorController extends Subject { //ì¸µì— ëŒ€í•œ ì •ë³´ë¥¼ ì•Œê³ ìˆì–´ì•¼ í•¨
   private int curFloor = 1;
 
-  //Æ¯Á¤ ÃşÀ¸·Î ÀÌµ¿ÇÏ°Ô²û
+  //íŠ¹ì • ì¸µìœ¼ë¡œ ì´ë™í•˜ê²Œë”
   public void gotoFloor(int destination) {
-    // °¬À¸´Ï±î curFloor°¡ ¹Ù²ñ
+    // ê°”ìœ¼ë‹ˆê¹Œ curFloorê°€ ë°”ë€œ
     curFloor = destination;
     notifyObservers();
   }
@@ -54,7 +54,7 @@ interface Observer {
 }
 
 class ElevatorDisplay implements Observer {
-  private ElevatorController controller; //¿¬°ü°ü°è
+  private ElevatorController controller; //ì—°ê´€ê´€ê³„
 
   public ElevatorDisplay(ElevatorController controller){
     this.controller = controller;
@@ -62,8 +62,8 @@ class ElevatorDisplay implements Observer {
 
   public void update() {
     int curFloor = controller.getCurFloor(); 
-    //getCurFloor´Â ElevatorControllerÀÇ ¸Å¼­µå
-    System.out.println("¿¤¸®º£ÀÌÅÍ ³»ºÎ µğ½ºÇÃ·¹ÀÌ : " + curFloor);
+    //getCurFloorëŠ” ElevatorControllerì˜ ë§¤ì„œë“œ
+    System.out.println("ì—˜ë¦¬ë² ì´í„° ë‚´ë¶€ ë””ìŠ¤í”Œë ˆì´ : " + curFloor);
   }
 }
 
@@ -74,8 +74,8 @@ class VoiceNotice implements Observer {
     this.controller = controller;
   }
   public void update() {
-    int curFloor = controller.getCurFloor(); //getCurFloor´Â ElevatorControllerÀÇ ¸Å¼­µå
-    System.out.println("¸ñ¼Ò¸® ¾È³» : " + curFloor);
+    int curFloor = controller.getCurFloor(); //getCurFloorëŠ” ElevatorControllerì˜ ë§¤ì„œë“œ
+    System.out.println("ëª©ì†Œë¦¬ ì•ˆë‚´ : " + curFloor);
   }
 }
 
@@ -86,8 +86,8 @@ class FloorDisplay implements Observer {
     this.controller = controller;
   }
   public void update() {
-    int curFloor = controller.getCurFloor(); //getCurFloor´Â ElevatorControllerÀÇ ¸Å¼­µå
-    System.out.println("Ãşº° µğ½ºÇÃ·¹ÀÌ : " + curFloor);
+    int curFloor = controller.getCurFloor(); //getCurFloorëŠ” ElevatorControllerì˜ ë§¤ì„œë“œ
+    System.out.println("ì¸µë³„ ë””ìŠ¤í”Œë ˆì´ : " + curFloor);
   }
 }
 
@@ -98,7 +98,7 @@ class ControlRoomDisplay implements Observer {
     this.controller = controller;
   }
   public void update() {
-    int curFloor = controller.getCurFloor(); //getCurFloor´Â ElevatorControllerÀÇ ¸Å¼­µå
-    System.out.println("Áß¾ÓÅëÁ¦½Ç µğ½ºÇÃ·¹ÀÌ : " + curFloor);
+    int curFloor = controller.getCurFloor(); //getCurFloorëŠ” ElevatorControllerì˜ ë§¤ì„œë“œ
+    System.out.println("ì¤‘ì•™í†µì œì‹¤ ë””ìŠ¤í”Œë ˆì´ : " + curFloor);
   }
 }

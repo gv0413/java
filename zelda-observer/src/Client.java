@@ -16,7 +16,7 @@ import javax.swing.event.ChangeListener;
 
 public class Client {
 	public static void main(String[] args) {
-		CollisionController cc = new CollisionController(); //¹Ù²ãÁÜ
+		CollisionController cc = new CollisionController(); //ë°”ê¿”ì¤Œ
 		cc.attach(new Zelda(cc));
 	}
 }
@@ -243,7 +243,7 @@ class RIGHTFAST implements State{
 
 class STANDING implements State{
 	private static STANDING standing;
-	private static final int MOVING_DIRECTION = 0; //»ó¼ö
+	private static final int MOVING_DIRECTION = 0; //ìƒìˆ˜
 	
 	private STANDING(){
 		
@@ -296,11 +296,11 @@ class Zelda extends JFrame implements Observer{
 	@Override
 	public void update() {
 		// TODO Auto-generated method stub
-		//¹æÇâÀ» º¸°í ¹æÇâ¿¡ µû¶ó Ä³¸¯ÅÍ°¡ ¿òÁ÷ÀÌµµ·Ï 
-		if(cc.getCollisionObjectType() == 1) { //¿ŞÂÊÀ¸·Î °È°íÀÖ´Ù°¡ ºÎµúÈù°Å±º!
+		//ë°©í–¥ì„ ë³´ê³  ë°©í–¥ì— ë”°ë¼ ìºë¦­í„°ê°€ ì›€ì§ì´ë„ë¡ 
+		if(cc.getCollisionObjectType() == 1) { //ì™¼ìª½ìœ¼ë¡œ ê±·ê³ ìˆë‹¤ê°€ ë¶€ë”ªíŒê±°êµ°!
 			this.setState(RIGHT.getInstance());
 		} 
-		else if(cc.getCollisionObjectType() == 2) { //¿À¸¥ÂÊÀ¸·Î °¡´Ù°¡ ºÎµúÇû±º!
+		else if(cc.getCollisionObjectType() == 2) { //ì˜¤ë¥¸ìª½ìœ¼ë¡œ ê°€ë‹¤ê°€ ë¶€ë”ªí˜”êµ°!
 			this.setState(LEFT.getInstance());
 		}
 	}
@@ -350,7 +350,7 @@ class Zelda extends JFrame implements Observer{
 					cc.onCollisionDetection();
 				} 
 				else if(lbl.getLocation().x > 100) {
-					cc.setCollisionObjectType(2); //¿À¸¥ÂÊ¿¡¼­ ¸¸³µ¾î
+					cc.setCollisionObjectType(2); //ì˜¤ë¥¸ìª½ì—ì„œ ë§Œë‚¬ì–´
 					cc.onCollisionDetection();
 				}
 				
@@ -388,7 +388,7 @@ class Zelda extends JFrame implements Observer{
 			JButton btn = (JButton) e.getSource();
 			if(btn == btnStanding) {
 				state.standing_button_pushed(zelda); 
-			//controller Å¬·¡½º°¡ zeldaÀÇ ÀÌ³ÊÅ¬·¡½º·Î »ç¿ëµÇ°í ÀÖ±â ¶§¹®¿¡ this¸¦ »ç¿ëÇÒ ¼ö ¾øÀ½. this¸¦ ¾²¸é controller°¡ µé¾î¿À´Ï±î
+			//controller í´ë˜ìŠ¤ê°€ zeldaì˜ ì´ë„ˆí´ë˜ìŠ¤ë¡œ ì‚¬ìš©ë˜ê³  ìˆê¸° ë•Œë¬¸ì— thisë¥¼ ì‚¬ìš©í•  ìˆ˜ ì—†ìŒ. thisë¥¼ ì“°ë©´ controllerê°€ ë“¤ì–´ì˜¤ë‹ˆê¹Œ
 			}else if(btn == btnWalkingLeft) {
 				state.left_button_pushed(zelda);
 			}else if (btn ==btnWalkingRight) {

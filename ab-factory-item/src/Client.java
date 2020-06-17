@@ -48,12 +48,12 @@ class AFactoryFrame extends JFrame {
 
 	  protected void paintComponent(Graphics g) {
 	    super.paintComponent(g);
-	    //±âº»ÀÌ¹ÌÁö
+	    //ê¸°ë³¸ì´ë¯¸ì§€
 	    ImageIcon image = new ImageIcon("./src/img/" + ImageService.charactorImageName[0]);
 	    Image img = image.getImage();
 	    g.drawImage(img, 0,0,400,600,aff);
 
-	    // factoryÅ¬·¡½ºÀÇ create ... ºÒ·¯¼­ ½ÇÁ¦·Î µå·ÎÀ×ÇÏµµ·Ï
+	    // factoryí´ë˜ìŠ¤ì˜ create ... ë¶ˆëŸ¬ì„œ ì‹¤ì œë¡œ ë“œë¡œì‰í•˜ë„ë¡
 	    if(factory != null) {
 	      factory.createCap().draw(g, aff);
 	      factory.createBody().draw(g, aff);
@@ -69,11 +69,11 @@ class AFactoryFrame extends JFrame {
 	  public Controller() {
 	    setLayout(new FlowLayout());
 
-	    btnSam = new JButton("»ï¼º¶óÀÌ¿ÂÁî");
+	    btnSam = new JButton("ì‚¼ì„±ë¼ì´ì˜¨ì¦ˆ");
 	    btnSam.addActionListener(this);
 	    add(btnSam);
 
-	    btnDoo = new JButton("µÎ»êº£¾î½º");
+	    btnDoo = new JButton("ë‘ì‚°ë² ì–´ìŠ¤");
 	    btnDoo.addActionListener(this);
 	    add(btnDoo);
 	  }
@@ -140,11 +140,11 @@ class DoosanBearsFactory extends CharactorFactory {
   }
 }
 
-// °øÅëÀûÀÎ productµé - ÀÌ¹ÌÁöÃâ·Â ±â´É
+// ê³µí†µì ì¸ productë“¤ - ì´ë¯¸ì§€ì¶œë ¥ ê¸°ëŠ¥
 abstract class DrawImage {
   public void draw(Graphics g, JFrame jf){
-    // template¸Ş¼­µå ÆĞÅÏ Àû¿ë
-    ImageIcon image = getImageIcon(); //ÇØ´ç°´Ã¼ ¹Ş¾Æ¿È. ÇÏÀ§Å¬·¡½º¿¡¼­ ³¯¾Æ¿Â °´Ã¼
+    // templateë©”ì„œë“œ íŒ¨í„´ ì ìš©
+    ImageIcon image = getImageIcon(); //í•´ë‹¹ê°ì²´ ë°›ì•„ì˜´. í•˜ìœ„í´ë˜ìŠ¤ì—ì„œ ë‚ ì•„ì˜¨ ê°ì²´
     Image img = image.getImage();
     g.drawImage(img, 0,0,400,600,jf);
 

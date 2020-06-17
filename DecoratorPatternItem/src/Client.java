@@ -17,7 +17,7 @@ class ImageService {
 	public static final String[] rockImageName = { "base_1.png", "decorator_1.png","decorator_2.png","decorator_3.png"};
 }
 
-//À©µµ¿ìÃ¢ ¸¸µå´Â Å¬·¡½º
+//ìœˆë„ìš°ì°½ ë§Œë“œëŠ” í´ë˜ìŠ¤
 class RockType extends JFrame {
 	private static final long serialVersionUID = 1L;
 	
@@ -64,12 +64,12 @@ abstract class Display {
 	public abstract void draw(RockType rt, Graphics g);
 }
 
-//±âº» µ¹À» ±×¸®´Â Å¬·¡½º
+//ê¸°ë³¸ ëŒì„ ê·¸ë¦¬ëŠ” í´ë˜ìŠ¤
 class RockDisplay extends Display {
 	public void draw(RockType rt, Graphics g) {
 		ImageIcon image = new ImageIcon("./src/img/" + ImageService.rockImageName[0]);
-		Image img = image.getImage(); //ÀÌ¹ÌÁöÇü½ÄÀ¸·Î ¹Ù²ãÁÜ
-		g.drawImage(img, 0, 0, 400, 400, rt); //ÁÂÇ¥°ª,³ĞÀÌ,³ôÀÌ,rt
+		Image img = image.getImage(); //ì´ë¯¸ì§€í˜•ì‹ìœ¼ë¡œ ë°”ê¿”ì¤Œ
+		g.drawImage(img, 0, 0, 400, 400, rt); //ì¢Œí‘œê°’,ë„“ì´,ë†’ì´,rt
 	}
 }
 
@@ -95,8 +95,8 @@ class Rock_1_Decorator extends DisplayDecorator {
 		super.draw(rt, g);
 
 		ImageIcon image = new ImageIcon("./src/img/" + ImageService.rockImageName[1]);
-		Image img = image.getImage(); //ÀÌ¹ÌÁöÇü½ÄÀ¸·Î ¹Ù²ãÁÜ
-		g.drawImage(img, 0, 0, 400, 400, rt); //ÁÂÇ¥°ª,³ĞÀÌ,³ôÀÌ,rt
+		Image img = image.getImage(); //ì´ë¯¸ì§€í˜•ì‹ìœ¼ë¡œ ë°”ê¿”ì¤Œ
+		g.drawImage(img, 0, 0, 400, 400, rt); //ì¢Œí‘œê°’,ë„“ì´,ë†’ì´,rt
 	}
 	
 }
@@ -111,8 +111,8 @@ class Rock_2_Decorator extends DisplayDecorator {
 		super.draw(rt, g);
 
 		ImageIcon image = new ImageIcon("./src/img/" + ImageService.rockImageName[2]);
-		Image img = image.getImage(); //ÀÌ¹ÌÁöÇü½ÄÀ¸·Î ¹Ù²ãÁÜ
-		g.drawImage(img, 0, 0, 400, 400, rt); //ÁÂÇ¥°ª,³ĞÀÌ,³ôÀÌ,rt
+		Image img = image.getImage(); //ì´ë¯¸ì§€í˜•ì‹ìœ¼ë¡œ ë°”ê¿”ì¤Œ
+		g.drawImage(img, 0, 0, 400, 400, rt); //ì¢Œí‘œê°’,ë„“ì´,ë†’ì´,rt
 	}
 	
 }
@@ -127,8 +127,8 @@ class Rock_3_Decorator extends DisplayDecorator {
 		super.draw(rt, g);
 
 		ImageIcon image = new ImageIcon("./src/img/" + ImageService.rockImageName[3]);
-		Image img = image.getImage(); //ÀÌ¹ÌÁöÇü½ÄÀ¸·Î ¹Ù²ãÁÜ
-		g.drawImage(img, 0, 0, 400, 400, rt); //ÁÂÇ¥°ª,³ĞÀÌ,³ôÀÌ,rt
+		Image img = image.getImage(); //ì´ë¯¸ì§€í˜•ì‹ìœ¼ë¡œ ë°”ê¿”ì¤Œ
+		g.drawImage(img, 0, 0, 400, 400, rt); //ì¢Œí‘œê°’,ë„“ì´,ë†’ì´,rt
 	}
 	
 }

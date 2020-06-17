@@ -4,14 +4,14 @@ import java.util.Collections;
 import java.util.Comparator;
 
 /*
-¿ÉÀú¹öÆĞÅÏ
-µ¥ÀÌÅÍ º¯°æÀÌ ÀÌ·ç¾îÁö´Â Å¬·¡½º¿¡¼­´Â subjectÅ¬·¡½º¸¦ »ó¼Ó¹Ş¾Æ¼­ ±â´Éº¯°æÀÌ ÀÌ·ç¾îÁú¶§ Åëº¸ÇÏµµ·Ï È°¿ë
-observerÀÎÅÍÆäÀÌ½º ÀÌ¿ë
-½ÇÁ¦ ±¸Ã¼È­µÈ ºÎºĞÀº ScoreRecord¿¡¼­ ¾ËÁö ¸øÇØµµ µÇµµ·ÏÇÑ´Ù
-scoreRecord´Â subject¸¦ ÅëÇØ ¿ÉÀú¹ö ÀÎÅÍÆäÀÌ½º¿Í ¼ÒÅë
+ì˜µì €ë²„íŒ¨í„´
+ë°ì´í„° ë³€ê²½ì´ ì´ë£¨ì–´ì§€ëŠ” í´ë˜ìŠ¤ì—ì„œëŠ” subjectí´ë˜ìŠ¤ë¥¼ ìƒì†ë°›ì•„ì„œ ê¸°ëŠ¥ë³€ê²½ì´ ì´ë£¨ì–´ì§ˆë•Œ í†µë³´í•˜ë„ë¡ í™œìš©
+observerì¸í„°í˜ì´ìŠ¤ ì´ìš©
+ì‹¤ì œ êµ¬ì²´í™”ëœ ë¶€ë¶„ì€ ScoreRecordì—ì„œ ì•Œì§€ ëª»í•´ë„ ë˜ë„ë¡í•œë‹¤
+scoreRecordëŠ” subjectë¥¼ í†µí•´ ì˜µì €ë²„ ì¸í„°í˜ì´ìŠ¤ì™€ ì†Œí†µ
 
-¾ç¹æÇâ ¿¬°ü°ü°è -> ´Ü¹æÇâ ¿¬°ü°ü°è -> ÀÇÁ¸ ³·Ãã. °áÇÕµµ ³·Ãã
-Àº´Ğ. observer interfaceÅëÇØ
+ì–‘ë°©í–¥ ì—°ê´€ê´€ê³„ -> ë‹¨ë°©í–¥ ì—°ê´€ê´€ê³„ -> ì˜ì¡´ ë‚®ì¶¤. ê²°í•©ë„ ë‚®ì¶¤
+ì€ë‹‰. observer interfaceí†µí•´
 */
 
 
@@ -40,33 +40,33 @@ interface Observer {
    abstract public void update(); 
 }
 
-// Ãß»óÈ­ Å¬·¡½º : Åëº¸ ´ë»ó °ü¸®
+// ì¶”ìƒí™” í´ë˜ìŠ¤ : í†µë³´ ëŒ€ìƒ ê´€ë¦¬
 abstract class Subject {
-   private List<Observer> observers = new ArrayList<Observer>(); //¿©·¯°¡Áö·Î ¹ŞÀ» ¼ö ÀÖµµ·Ï List
+   private List<Observer> observers = new ArrayList<Observer>(); //ì—¬ëŸ¬ê°€ì§€ë¡œ ë°›ì„ ìˆ˜ ìˆë„ë¡ List
    
-   //Ãß°¡
+   //ì¶”ê°€
    public void attach(Observer observer) {
       observers.add(observer);
    }
    
-   //»èÁ¦
+   //ì‚­ì œ
    public void detach(Observer observer) {
       observers.remove(observer);
    }
 
-   //Åëº¸ÇØ¾ßÇÒ ¶§
+   //í†µë³´í•´ì•¼í•  ë•Œ
    public void notifyObservers() {
-      for( Observer o : observers) o.update(); //¿ÉÀú¹ö°¡ °¡Áö°íÀÖ´Â ¾÷µ¥ÀÌÆ®ÇÔ¼ö¸¦ µ¹¸é¼­ ¾÷µ¥ÀÌÆ® ÇÒ ¼ö ÀÖµµ·Ï
+      for( Observer o : observers) o.update(); //ì˜µì €ë²„ê°€ ê°€ì§€ê³ ìˆëŠ” ì—…ë°ì´íŠ¸í•¨ìˆ˜ë¥¼ ëŒë©´ì„œ ì—…ë°ì´íŠ¸ í•  ìˆ˜ ìˆë„ë¡
    }
 }
 
-//°ªÀÇ º¯°æÀÌ ÀÌ·ç¾îÁü 
+//ê°’ì˜ ë³€ê²½ì´ ì´ë£¨ì–´ì§ 
 class ScoreRecord extends Subject{
    private List<Integer> scores = new ArrayList<Integer>();
 
-   public void addScore(int score) { // »õ·Î¿î Á¡¼ö Ãß°¡
+   public void addScore(int score) { // ìƒˆë¡œìš´ ì ìˆ˜ ì¶”ê°€
       scores.add(score);
-      notifyObservers(); //Åëº¸ ±â´É Ãß°¡ -> ¾Õ¿¡¼­ ¹¹°¡ ¹Ù²¸µµ scoreRecord¿¡¼­´Â ¹Ù²ğ°Ô ¾øÀ½
+      notifyObservers(); //í†µë³´ ê¸°ëŠ¥ ì¶”ê°€ -> ì•ì—ì„œ ë­ê°€ ë°”ê»´ë„ scoreRecordì—ì„œëŠ” ë°”ë€”ê²Œ ì—†ìŒ
    }
 
    public List<Integer> getScoreRecord() {
@@ -131,7 +131,7 @@ class DescendingView implements Observer {
    }
 
    private void displayDescending(List<Integer> record) {
-      Collections.sort(record, Comparator.reverseOrder()); //³»¸²Â÷¼ø
+      Collections.sort(record, Comparator.reverseOrder()); //ë‚´ë¦¼ì°¨ìˆœ
       System.out.println("Reverse Order : ");
       for(int i=0; i < record.size(); i++) {
          System.out.print(record.get(i)+ " ");

@@ -1,5 +1,5 @@
 /*
-°øÅë±â´É - Â÷·® °¡°İ°ú ¼³¸íÀÌ ÀÖÀ½
+ê³µí†µê¸°ëŠ¥ - ì°¨ëŸ‰ ê°€ê²©ê³¼ ì„¤ëª…ì´ ìˆìŒ
 
 */
 
@@ -17,7 +17,7 @@ public class Client {
 	}
 }
 
-//°¡°İ°ú Á¤º¸ °¡Á®¿À´Â Ãß»óÅ¬·¡½º
+//ê°€ê²©ê³¼ ì •ë³´ ê°€ì ¸ì˜¤ëŠ” ì¶”ìƒí´ë˜ìŠ¤
 abstract class CarComponent {
 	public abstract int getPrice();
 	public abstract String getCarInfo();
@@ -44,7 +44,7 @@ class BasicCar extends CarComponent {
 	
 }
 
-//»ı¼ºÀÚ¿¡¼­ ¾î¶² °ÍÀ» ¹Ş¾Æ¾ß ÇÏ´Â°¡? -> ÄÄÆ÷³ÍÆ®Å¸ÀÔÀÇ ´Ù¸¥ ¿É¼Çµé
+//ìƒì„±ìì—ì„œ ì–´ë–¤ ê²ƒì„ ë°›ì•„ì•¼ í•˜ëŠ”ê°€? -> ì»´í¬ë„ŒíŠ¸íƒ€ì…ì˜ ë‹¤ë¥¸ ì˜µì…˜ë“¤
 class CarOptionDecorator extends CarComponent {
 	private CarComponent decoratedCar;
 	

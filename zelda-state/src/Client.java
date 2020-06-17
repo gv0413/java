@@ -66,7 +66,7 @@ class LEFT implements State{
 			imageIndex = 0;
 		}
 		
-		lbl.setIcon(new ImageIcon("./src/img/" + ImageService.walkingLeftImageName[imageIndex]));
+		lbl.setIcon(new ImageIcon("./img/" + ImageService.walkingLeftImageName[imageIndex]));
 		lbl.setLocation(lbl.getLocation().x + MOVING_DIRECTION, lbl.getLocation().y);
 		
 		return ++imageIndex;
@@ -109,7 +109,7 @@ class LEFTFAST implements State {
 			imageIndex = 0;
 		}
 		
-		lbl.setIcon(new ImageIcon("./src/img/" + ImageService.walkingLeftImageName[imageIndex]));
+		lbl.setIcon(new ImageIcon("./img/" + ImageService.walkingLeftImageName[imageIndex]));
 		lbl.setLocation(lbl.getLocation().x + MOVING_DIRECTION, lbl.getLocation().y);
 		
 		return ++imageIndex;
@@ -152,7 +152,7 @@ class RIGHT implements State{
 			imageIndex = 0;
 		}
 		
-		lbl.setIcon(new ImageIcon("./src/img/" + ImageService.walkingRightImageName[imageIndex]));
+		lbl.setIcon(new ImageIcon("./img/" + ImageService.walkingRightImageName[imageIndex]));
 		lbl.setLocation(lbl.getLocation().x + MOVING_DIRECTION, lbl.getLocation().y);
 		
 		return ++imageIndex;
@@ -195,7 +195,7 @@ class RIGHTFAST implements State{
 			imageIndex = 0;
 		}
 		
-		lbl.setIcon(new ImageIcon("./src/img/" + ImageService.walkingRightImageName[imageIndex]));
+		lbl.setIcon(new ImageIcon("./img/" + ImageService.walkingRightImageName[imageIndex]));
 		lbl.setLocation(lbl.getLocation().x + MOVING_DIRECTION, lbl.getLocation().y);
 		
 		return ++imageIndex;
@@ -204,7 +204,7 @@ class RIGHTFAST implements State{
 
 class STANDING implements State{
 	private static STANDING standing;
-	private static final int MOVING_DIRECTION = 0; //»ó¼ö
+	private static final int MOVING_DIRECTION = 0; //ìƒìˆ˜
 	
 	private STANDING(){
 		
@@ -233,7 +233,7 @@ class STANDING implements State{
 			imageIndex = 0;
 		}
 		
-		lbl.setIcon(new ImageIcon("./src/img/" + ImageService.standingImageName[imageIndex]));
+		lbl.setIcon(new ImageIcon("./img/" + ImageService.standingImageName[imageIndex]));
 		lbl.setLocation(lbl.getLocation().x + MOVING_DIRECTION, lbl.getLocation().y);
 		
 		return ++imageIndex;
@@ -279,8 +279,7 @@ class Zelda extends JFrame{
 		public Field() {
 			setLayout(new BorderLayout());
 			lbl = new JLabel();
-//			lbl.setIcon(new ImageIcon("./src/img/"+ImageService.standingImageName[0]));
-			lbl.setIcon(new ImageIcon("./src/img/f.png"));
+			lbl.setIcon(new ImageIcon("./src/img/"+ImageService.standingImageName[0]));
 			add(lbl, BorderLayout.CENTER);
 		}
 		
@@ -322,7 +321,7 @@ class Zelda extends JFrame{
 			JButton btn = (JButton) e.getSource();
 			if(btn == btnStanding) {
 				state.standing_button_pushed(zelda); 
-			//controller Å¬·¡½º°¡ zeldaÀÇ ÀÌ³ÊÅ¬·¡½º·Î »ç¿ëµÇ°í ÀÖ±â ¶§¹®¿¡ this¸¦ »ç¿ëÇÒ ¼ö ¾øÀ½. this¸¦ ¾²¸é controller°¡ µé¾î¿À´Ï±î
+			//controller í´ë˜ìŠ¤ê°€ zeldaì˜ ì´ë„ˆí´ë˜ìŠ¤ë¡œ ì‚¬ìš©ë˜ê³  ìˆê¸° ë•Œë¬¸ì— thisë¥¼ ì‚¬ìš©í•  ìˆ˜ ì—†ìŒ. thisë¥¼ ì“°ë©´ controllerê°€ ë“¤ì–´ì˜¤ë‹ˆê¹Œ
 			}else if(btn == btnWalkingLeft) {
 				state.left_button_pushed(zelda);
 			}else if (btn ==btnWalkingRight) {

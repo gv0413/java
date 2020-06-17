@@ -24,15 +24,15 @@ class IPhoneHomeButton {
 	}
 	public void doClick() {
 		this.mLabel.setIcon(new ImageIcon("./src/img/"+ImageService.iPhoneImageName[1]));
-		System.out.println("È¨ ¹öÆ°ÀÌ Å¬¸¯ µÇ¾ú½À´Ï´Ù.");
+		System.out.println("í™ˆ ë²„íŠ¼ì´ í´ë¦­ ë˜ì—ˆìŠµë‹ˆë‹¤.");
 	}
 	public void doDoubleClick() {
 		this.mLabel.setIcon(new ImageIcon("./src/img/"+ImageService.iPhoneImageName[3]));
-		System.out.println("È¨ ¹öÆ°ÀÌ ´õºí Å¬¸¯ µÇ¾ú½À´Ï´Ù.");
+		System.out.println("í™ˆ ë²„íŠ¼ì´ ë”ë¸” í´ë¦­ ë˜ì—ˆìŠµë‹ˆë‹¤.");
 	}
 	public void doLongClick() {
 		this.mLabel.setIcon(new ImageIcon("./src/img/"+ImageService.iPhoneImageName[2]));
-		System.out.println("È¨ ¹öÆ°ÀÌ ·Õ Å¬¸¯ µÇ¾ú½À´Ï´Ù.");
+		System.out.println("í™ˆ ë²„íŠ¼ì´ ë¡± í´ë¦­ ë˜ì—ˆìŠµë‹ˆë‹¤.");
 	}
 }
 
@@ -87,7 +87,7 @@ class HomeButton{
 	
 	public void setCommand(Command command) {
 		this.command = command;
-	} //´Ù¸¥ Ä¿¸àµå ÇÊ¿äÇÒ ¶§
+	} //ë‹¤ë¥¸ ì»¤ë©˜ë“œ í•„ìš”í•  ë•Œ
 	
 	public void pressed() {
 		command.execute();
@@ -127,13 +127,13 @@ class Field extends JFrame {
 		
 		public Controller() {
 			setLayout(new FlowLayout());
-			btnHomeClick = new JButton("È¨ ¹öÆ° Å¬¸¯");
+			btnHomeClick = new JButton("í™ˆ ë²„íŠ¼ í´ë¦­");
 			btnHomeClick.addActionListener(this);
 			add(btnHomeClick);
-			btnDoubleClick = new JButton("È¨ ¹öÆ° ´õºí Å¬¸¯");
+			btnDoubleClick = new JButton("í™ˆ ë²„íŠ¼ ë”ë¸” í´ë¦­");
 			btnDoubleClick.addActionListener(this);
 			add(btnDoubleClick);
-			btnHomeLongClick = new JButton("È¨ ¹öÆ° ·Õ Å¬¸¯");
+			btnHomeLongClick = new JButton("í™ˆ ë²„íŠ¼ ë¡± í´ë¦­");
 			btnHomeLongClick.addActionListener(this);
 			add(btnHomeLongClick);
 			

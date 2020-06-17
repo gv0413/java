@@ -26,7 +26,7 @@ class TV {
 
 class Airconditioner {
 	private boolean powerOn = false;
-	private boolean dehumidificationOn = false; //Á¦½À±â´É
+	private boolean dehumidificationOn = false; //ì œìŠµê¸°ëŠ¥
 	
 	public void power() {
 		powerOn = !powerOn;
@@ -52,7 +52,7 @@ class Airconditioner {
 
 class TwoButtonController {
 	private Command command1;
-	private Command command2; //tv°´Ã¼¸¦ ¹Ù·Î »ç¿ëÇÏÁö¾Ê°í command°´Ã¼·Î ¸¸µé¾îÁÜ
+	private Command command2; //tvê°ì²´ë¥¼ ë°”ë¡œ ì‚¬ìš©í•˜ì§€ì•Šê³  commandê°ì²´ë¡œ ë§Œë“¤ì–´ì¤Œ
 	
 	public TwoButtonController(Command command1, Command command2) {
 		this.command1 = command1;
@@ -70,22 +70,28 @@ class TwoButtonController {
 public class Client {
 	public static void main(String[] args) {
 //		TV tv = new TV(); 
-		//tv°´Ã¼ ¸¸µé¾îÁÖ°í
+		//tvê°ì²´ ë§Œë“¤ì–´ì£¼ê³ 
 //		TVOnCommand toc = new TVOnCommand(tv); 
-		//tv°´Ã¼¸¦ TVOncommand¿¡ ³Ö¾îÁÖ°í
+		//tvê°ì²´ë¥¼ TVOncommandì— ë„£ì–´ì£¼ê³ 
 //		TVMuteCommand tmc = new TVMuteCommand(tv); 
-		//TVMuteCommand¿¡ ³Ö¾îÁØ´Ù
+		//TVMuteCommandì— ë„£ì–´ì¤€ë‹¤
 		
-		Airconditioner tv = new Airconditioner();
-		AirconditionerOnCommand toc = new AirconditionerOnCommand(tv); 
-		AirconditionerDehumidificationOnCommand tmc = new AirconditionerDehumidificationOnCommand(tv);
-		TwoButtonController tbc = new TwoButtonController(toc, tmc); //command1°ú command2·Î 
+		// Airconditioner a = new Airconditioner();
+		// AirconditionerOnCommand aoc = new AirconditionerOnCommand(a); 
+		// AirconditionerDehumidificationOnCommand amc = new AirconditionerDehumidificationOnCommand(a);
+		// TwoButtonController tbc = new TwoButtonController(aoc, amc); //command1ê³¼ command2ë¡œ 
 		
-		tbc.button1Pressed();
-		tbc.button2Pressed();
+		TV tv = new TV();
+		TVOnCommand toc = new TVOnCommand(tv);
+		TVMuteCommand tmc = new TVMuteCommand(tv);
+		TwoButtonController tbc2 = new TwoButtonController(toc, tmc );
+
 		
-		tbc.button1Pressed();
-		tbc.button2Pressed();
+		tbc2.button1Pressed(); //power on!!
+		tbc2.button2Pressed(); //mute on!!
+		
+		tbc2.button1Pressed(); //power off! tvê°€ êº¼ì¡Œìœ¼ë‹ˆê¹Œ ì œìŠµê¸°ëŠ¥ì„ ì¼œë„ ì•„ë¬´ ë™ì‘ë„ í•˜ì§€ ì•ŠìŒ. 
+		tbc2.button2Pressed(); //ë°˜ì‘x (returní•´ì„œ)
 	}
 }
 
@@ -99,12 +105,12 @@ class TVOnCommand implements Command {
 	public TVOnCommand(TV tv) {
 		this.tv = tv;
 	}
-	//	¿ÜºÎÀÇ tv°´Ã¼¸¦ ¹Ş°í Àü¿ªº¯¼öÀÇ tv¿¡ ³Ö¾îÁØ´Ù
+	//	ì™¸ë¶€ì˜ tvê°ì²´ë¥¼ ë°›ê³  ì „ì—­ë³€ìˆ˜ì˜ tvì— ë„£ì–´ì¤€ë‹¤
 	@Override
 	public void execute() {
 		// TODO Auto-generated method stub
 		this.tv.power();
-	//±âÁ¸¿¡¼­´Â TwoButtonController¿¡¼­ Á÷Á¢ power¸¦ Ä×À½. ÀÌ·¸°Ô ÇÔÀ¸·Î½á ÀÇÁ¸¼º Á¦°Å
+	//ê¸°ì¡´ì—ì„œëŠ” TwoButtonControllerì—ì„œ ì§ì ‘ powerë¥¼ ì¼°ìŒ. ì´ë ‡ê²Œ í•¨ìœ¼ë¡œì¨ ì˜ì¡´ì„± ì œê±°
 	}
 	
 }

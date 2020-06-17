@@ -31,7 +31,7 @@ abstract class Display {
 
 class RoadDisplay extends Display {
 	public void draw() {
-		System.out.println("µµ·Î ±âº» Ç¥½Ã");
+		System.out.println("ë„ë¡œ ê¸°ë³¸ í‘œì‹œ");
 	}
 }
 
@@ -48,14 +48,14 @@ class DisplayDecorator extends Display {
 
 class LaneDecorator extends DisplayDecorator {
 	public LaneDecorator(Display decoratedDisplay) {
-		super(decoratedDisplay);
+		super(decoratedDisplay); //ë¶€ëª¨ í´ë˜ìŠ¤ì¸ decoratedDisplayì˜ ìƒì„±ìì— ë„£ëŠ”ë‹¤.
 	}
 	public void draw() {
 		super.draw();
 		drawLane();
 	}
 	private void drawLane() {
-		System.out.println("\tÂ÷¼± Ç¥½Ã");
+		System.out.println("\tì°¨ì„  í‘œì‹œ");
 	}
 }
 
@@ -68,7 +68,7 @@ class TrafficDecorator extends DisplayDecorator {
 		drawTraffic();
 	}
 	private void drawTraffic() {
-		System.out.println("\t±³Åë·® Ç¥½Ã");
+		System.out.println("\têµí†µëŸ‰ í‘œì‹œ");
 	}
 }
 
@@ -81,6 +81,6 @@ class CrossingDecorator extends DisplayDecorator {
 		drawCrossing();
 	}
 	private void drawCrossing() {
-		System.out.println("\tÈ¾´Üº¸µµ Ç¥½Ã");
+		System.out.println("\tíš¡ë‹¨ë³´ë„ í‘œì‹œ");
 	}
 }

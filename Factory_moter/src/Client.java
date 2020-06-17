@@ -14,13 +14,14 @@ abstract class Motor {
 	}
 	public void move(Direction direction) {
 		MotorStatus motorStatus = getMotorStatus();
-		if(motorStatus == motorStatus.MOVING) {
+		if(motorStatus == MotorStatus.MOVING) {
 			return;
 		}
 		moveMotor(direction);
-		setMotorStatus(motorStatus.MOVING);
+		setMotorStatus(MotorStatus.MOVING);
 	}
 	
+	//function hook
 	protected abstract void moveMotor(Direction direction);
 	
 	public void stop() {
@@ -34,7 +35,6 @@ class LGMotor extends Motor {
 		// TODO Auto-generated method stub
 		System.out.println("move LG Motor " + direction);
 	}
-	
 }
 class HyundaiMotor extends Motor {
 	@Override
@@ -88,10 +88,11 @@ public class Client {
 		controller.gotoFloor(2);
 	}
 }
+
 //factory
 enum MotorVendorID{HYUNDAI, LG}
 class MotorFactory {
-	//½ºÅÂÆ½À¸·Î ¸¸µéÁö ¾ÊÀ¸¸é ¸Å¹ø °´Ã¼·Î ¸¸µé¾î¾ßÇÏ´Â ¹®Á¦Á¡ÀÌ ÀÖ¾î¼­ ½ºÅÂÆ½À¸·Î ¸Ş¼Òµå¸¦ ¸¸µé¾îÁà¾ß ÇÑ´Ù.
+	//ìŠ¤íƒœí‹±ìœ¼ë¡œ ë§Œë“¤ì§€ ì•Šìœ¼ë©´ ë§¤ë²ˆ ê°ì²´ë¡œ ë§Œë“¤ì–´ì•¼í•˜ëŠ” ë¬¸ì œì ì´ ìˆì–´ì„œ ìŠ¤íƒœí‹±ìœ¼ë¡œ ë©”ì†Œë“œë¥¼ ë§Œë“¤ì–´ì¤˜ì•¼ í•œë‹¤.
 	public static Motor getMotor(MotorVendorID vendorID) {
 		Motor motor = null;
 		switch(vendorID) {
@@ -109,4 +110,4 @@ class MotorFactory {
 	}
 }
 
-//¾ÆÄ§¿£ lg, ¿ÀÈÄ¿£ Çö´ë²¨¸¦ ¾²´Â°Å¸¦ ÇØº¸ÀÚ. ÆÑÅä¸® ¸Ş¼Òµå¿¡!
+//ì•„ì¹¨ì—” lg, ì˜¤í›„ì—” í˜„ëŒ€êº¼ë¥¼ ì“°ëŠ”ê±°ë¥¼ í•´ë³´ì. íŒ©í† ë¦¬ ë©”ì†Œë“œì—!

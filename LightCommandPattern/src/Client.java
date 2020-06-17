@@ -132,7 +132,7 @@ class Field extends JFrame {
 		
 		public Controller() {
 			setLayout(new FlowLayout());
-			btnAll = new JButton("¸¸´É ¹öÆ°");
+			btnAll = new JButton("ë§ŒëŠ¥ ë²„íŠ¼");
 			btnAll.addActionListener(this);
 			add(btnAll);
 			
